@@ -1,13 +1,13 @@
 FROM gitpod/workspace-full:latest
 
-LABEL maintainer="vitortorresvt@gmail.com"
+LABEL maintainer="stanwu.tw@gmail.com"
 
 USER root
 
-RUN apt-get update -y
-RUN apt-get install -y gcc make build-essential wget curl unzip apt-utils xz-utils libkrb5-dev gradle libpulse0 android-tools-adb android-tools-fastboot
-RUN apt remove --purge openjdk-*-jdk
-RUN apt-get install -y openjdk-8-jdk
+RUN apt-get update -yq && \
+    apt-get install -yq gcc make build-essential wget curl unzip apt-utils xz-utils libkrb5-dev gradle libpulse0 android-tools-adb android-tools-fastboot && \
+    apt-get remove -y --purge openjdk-*-jdk && \
+    apt-get install -yq openjdk-8-jdk
 
 USER gitpod
 
